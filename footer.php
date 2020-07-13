@@ -14,7 +14,12 @@
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
 	</div>
 </footer>
-
+<?php
+  // Include HTML/CSS footer
+  $footNum = get_field('footer_opt', 'option');
+  include_once'inc/footers/footer'.$footNum.'.php';
+  include_once'assets/css/footer'.$footNum.'.css';
+?>
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	</div><!-- Close off-canvas content -->
 <?php endif; ?>

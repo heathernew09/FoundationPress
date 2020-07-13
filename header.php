@@ -21,8 +21,13 @@
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
-
-	<header class="site-header" role="banner">
+	<?php
+		// Include Header from ACF Options page
+		$smpts_headNum = get_field('header_opt', 'option');
+		include_once'inc/headers/header'.$smpts_headNum.'.php';
+		include_once'assets/css/header'.$smpts_headNum.'.css';
+	?>
+	<?php /*?><header class="site-header" role="banner">
 		<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle(); ?>>
 			<div class="title-bar-left">
 				<button aria-label="<?php _e( 'Main Menu', 'foundationpress' ); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
@@ -48,3 +53,4 @@
 		</nav>
 
 	</header>
+<?php */?>
